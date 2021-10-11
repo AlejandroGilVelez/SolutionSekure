@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>$(NetCoreTargetVersion)</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\$(NetCoreTargetVersion)\SC.Sekure.Helpers.Commons.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\$(NetCoreTargetVersion)\SC.Sekure.Helpers.Commons.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="Entity.cs"></None>
+    <None Include="Exceptions\CustomException.cs"></None>
+  </ItemGroup>
+</Project>

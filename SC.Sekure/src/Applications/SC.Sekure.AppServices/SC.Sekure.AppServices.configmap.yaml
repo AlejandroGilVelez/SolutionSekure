@@ -1,0 +1,24 @@
+﻿apiVersion: v1
+kind: ConfigMap
+metadata:
+   name: #{k8.CONFIG_MAP_NAME}# 
+   namespace: #{k8.APP_NAMESPACE}#
+data:
+   appsettings.json: |-
+     {
+        "AppSettings": {
+         "AppId": "#{App.AppId}#",
+         "AppSecret": "#{App.AppSecret}#",   
+         "ElasticsearchUrl": "#{App.ElasticsearchUrl}#",
+         "IndexFormatKibana": "#{App.IndexFormatKibana}#",
+         },
+         "Serilog":  {           
+            "MinimumLevel":  {
+                "Default":  "#{App.SerilogMinimumLevel}#",
+                "Override":  {
+                      "Microsoft":  "Error",
+                      "System":  "Error"
+                }
+            }
+         }         
+     }

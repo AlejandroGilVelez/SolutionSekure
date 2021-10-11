@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>$(NetCoreTargetVersion)</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\$(NetCoreTargetVersion)\SC.Sekure.Domain.Entities.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\$(NetCoreTargetVersion)\SC.Sekure.Domain.Entities.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
+    <Folder Include="Entities\Gateway" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Entities\Gateway\ITestEntityRepository.cs"></None>
+    <None Include="Entities\Gateway\IManageEntityUseCase.cs"></None>    
+    <None Include="Entities\Entity.cs"></None>
+  </ItemGroup>
+
+</Project>

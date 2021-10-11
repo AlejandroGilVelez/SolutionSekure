@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>$(NetCoreTargetVersion)</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\$(NetCoreTargetVersion)\SC.Sekure.Domain.UseCase.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\$(NetCoreTargetVersion)\SC.Sekure.Domain.UseCase.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Reactive" Version="$(SystemReactive)" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="$(MicrosoftExtensionsLoggingAbstractions)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SC.Sekure.Domain.Entities\SC.Sekure.Domain.Model.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Helpers\$(SolutionName).Helpers.Commons\$(SolutionName).Helpers.Commons.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ManageEntityUseCase.cs"></None>
+    <None Include="Common\ManageEventsUseCase.cs"></None>
+    <None Include="Common\IManageEventsUseCase.cs"></None>
+    
+  </ItemGroup>
+</Project>

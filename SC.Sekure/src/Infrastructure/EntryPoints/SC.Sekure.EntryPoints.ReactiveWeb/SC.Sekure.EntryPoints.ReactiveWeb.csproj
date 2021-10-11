@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>$(NetCoreTargetVersion)</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\$(NetCoreTargetVersion)\SC.Sekure.EntryPoints.ReactiveWeb.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\$(NetCoreTargetVersion)\SC.Sekure.EntryPoints.ReactiveWeb.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Controllers" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftJson)" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="$(MicrosoftAspNetCoreMvcVersioningApiExplorer)" />
+    <PackageReference Include="credinet.comun.api.core3" Version="$(credinetComunApi)" />
+    <PackageReference Include="credinet-exception-middleware" Version="$(credinetexceptionmiddleware)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controllers\EntityController.cs"></None>
+    <None Include="Base\AppControllerBase.cs"></None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Domain\$(SolutionName).Domain.UseCase\$(SolutionName).Domain.UseCase.csproj" />
+    <ProjectReference Include="..\..\Helpers\$(SolutionName).Helpers.ObjectsUtils\$(SolutionName).Helpers.ObjectsUtils.csproj" />
+  </ItemGroup>
+</Project>

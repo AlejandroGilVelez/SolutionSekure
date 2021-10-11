@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>$(NetCoreTargetVersion)</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\$(NetCoreTargetVersion)\SC.Sekure.DrivenAdapters.Mongo.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\$(NetCoreTargetVersion)\SC.Sekure.DrivenAdapters.Mongo.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="$(MongoDBDriver)" />
+    <PackageReference Include="Newtonsoft.Json" Version=" $(NewtonsoftJson)" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="$(MicrosoftExtensionsHttp)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Domain\SC.Sekure.Domain.Entities\SC.Sekure.Domain.Model.csproj" />
+    <ProjectReference Include="..\..\Helpers\$(SolutionName).Helpers.ObjectsUtils\$(SolutionName).Helpers.ObjectsUtils.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities" />
+    <Folder Include="Automapper" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Entities\Entity.cs"></None>
+    <None Include="Entities\EntityAdapter.cs"></None>
+    <None Include="Context.cs"></None>
+  </ItemGroup>
+</Project>
